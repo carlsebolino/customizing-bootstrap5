@@ -1,0 +1,26 @@
+// Font
+$font-family-sans-serif: 'Open Sans', sans-serif;
+@import "../node_modules/bootstrap/scss/functions";
+
+@import "./variables";
+
+
+@import "../node_modules/bootstrap/scss/variables";
+@import "../node_modules/bootstrap/scss/variables-dark";
+
+
+// map overrides
+// spacers
+$custom-spacers: (
+    6: $spacer * 6,
+    7: $spacer * 8,
+    8: $spacer * 12
+);
+$spacers: map-merge($spacers, $custom-spacers);
+$headings-margin-bottom: $spacer * 1;
+
+@import "../node_modules/bootstrap/scss/maps";
+@import "../node_modules/bootstrap/scss/mixins";
+@import "../node_modules/bootstrap/scss/root";
+
+@import '../node_modules/bootstrap/scss/bootstrap';
