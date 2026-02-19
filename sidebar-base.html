@@ -1,199 +1,117 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="en" data-bs-theme="light">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Insights Engine</title>
+  <title>Responsive Sidebar Navigation with Images</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
 </head>
-<body class="bg-body-tertiary">
+<body>
+
+<!-- Sidebar Offcanvas for mobile -->
+<div class="offcanvas offcanvas-start" tabindex="-1" id="sidebarMobile" aria-labelledby="sidebarMobileLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title d-flex align-items-center gap-2" id="sidebarMobileLabel">
+      <img src="https://via.placeholder.com/24" class="rounded" alt="Logo">
+      Grundfos
+    </h5>
+    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"></button>
+  </div>
+  <div class="offcanvas-body d-flex flex-column">
+    <nav class="nav nav-pills flex-column gap-1 mb-4">
+      <a href="#" class="nav-link">Home</a>
+      <a href="#" class="nav-link active">Product Readiness</a>
+      <a href="#" class="nav-link">Export</a>
+    </nav>
+    <div class="mt-auto pt-4 border-top d-flex align-items-center gap-2">
+      <img src="https://via.placeholder.com/32" class="rounded-circle" alt="User">
+      <div class="small text-body-secondary">
+        Markus Jensen<br>
+        <span class="text-muted">Product Specialist</span>
+      </div>
+    </div>
+  </div>
+</div>
 
 <div class="container-fluid">
-  <div class="row">
+  <div class="row vh-100">
 
-    <!-- ================================= -->
-    <!-- DESKTOP SIDEBAR -->
-    <!-- ================================= -->
-    <aside class="col-lg-2 d-none d-lg-flex flex-column border-end bg-body min-vh-100 p-0">
+    <!-- Sidebar for desktop -->
+    <aside class="col-12 col-md-3 col-lg-2 d-none d-md-flex flex-column bg-body-tertiary border-end p-3">
 
-      <!-- Brand Header -->
-      <div class="p-3 border-bottom d-flex align-items-center gap-2">
-        <img src="https://placehold.co/32"
-             alt="Brand Logo"
-             width="32"
-             height="32"
-             class="rounded">
-        <span class="fw-semibold">Insights Engine</span>
+      <!-- Logo + Title -->
+      <div class="mb-4 d-flex align-items-center gap-2">
+        <img src="https://via.placeholder.com/32" class="rounded" alt="Logo">
+        <div>
+          <h6 class="fw-bold mb-0">Grundfos</h6>
+          <small class="text-body-secondary">Insights Engine</small>
+        </div>
       </div>
 
       <!-- Navigation -->
-      <div class="list-group list-group-flush flex-grow-1">
+      <nav class="nav nav-pills flex-column gap-1">
+        <a href="#" class="nav-link text-body-secondary">Home</a>
+        <a href="#" class="nav-link active">Product Readiness</a>
+        <a href="#" class="nav-link text-body-secondary">Export</a>
+      </nav>
 
-        <a href="#" class="list-group-item list-group-item-action active">
-          Home
-        </a>
-
-        <!-- Dropdown -->
-        <a class="list-group-item list-group-item-action d-flex justify-content-between align-items-center"
-           data-bs-toggle="collapse"
-           href="#productMenu"
-           role="button"
-           aria-expanded="true">
-          Product Readiness
-          <span class="small"></span>
-        </a>
-
-        <div class="collapse show" id="productMenu">
-          <a href="#" class="list-group-item list-group-item-action ps-4">
-            Overview
-          </a>
-          <a href="#" class="list-group-item list-group-item-action ps-4">
-            Reports
-          </a>
+      <!-- User Info -->
+      <div class="mt-auto pt-4 border-top d-flex align-items-center gap-2">
+        <img src="https://via.placeholder.com/32" class="rounded-circle" alt="User">
+        <div class="small text-body-secondary">
+          Markus Jensen<br>
+          <span class="text-muted">Product Specialist</span>
         </div>
-
-        <a href="#" class="list-group-item list-group-item-action">
-          Export
-        </a>
-
-      </div>
-
-      <!-- Logged In Section -->
-      <div class="mt-auto border-top p-3 small text-muted">
-        <div>Logged in as</div>
-        <div class="fw-semibold text-body">Markus Jensen</div>
-        <div class="text-secondary">Product Specialist</div>
       </div>
 
     </aside>
 
+    <!-- Main Content -->
+    <main class="col-12 col-md-9 col-lg-10 p-4">
 
-    <!-- ================================= -->
-    <!-- MOBILE SIDEBAR (OFFCANVAS) -->
-    <!-- ================================= -->
-    <div class="offcanvas offcanvas-start" tabindex="-1" id="sidebarMobile">
-
-      <!-- Header -->
-      <div class="offcanvas-header border-bottom d-flex align-items-center gap-2">
-        <img src="https://via.placeholder.com/32"
-             alt="Brand Logo"
-             width="32"
-             height="32"
-             class="rounded">
-
-        <span class="fw-semibold">Insights Engine</span>
-
-        <button type="button"
-                class="btn-close ms-auto"
-                data-bs-dismiss="offcanvas">
+      <!-- Top bar for mobile: toggle sidebar -->
+      <div class="d-md-none mb-3">
+        <button class="btn btn-outline-secondary" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarMobile">
+          <i class="bi bi-list"></i> Menu
         </button>
       </div>
 
-      <!-- Body -->
-      <div class="offcanvas-body d-flex flex-column p-0">
-
-        <div class="list-group list-group-flush flex-grow-1">
-
-          <a href="#" class="list-group-item list-group-item-action active">
-            Home
-          </a>
-
-          <a class="list-group-item list-group-item-action"
-             data-bs-toggle="collapse"
-             href="#mobileProductMenu"
-             aria-expanded="true">
-            Product Readiness
-          </a>
-
-          <div class="collapse show" id="mobileProductMenu">
-            <a href="#" class="list-group-item list-group-item-action ps-4">
-              Overview
-            </a>
-            <a href="#" class="list-group-item list-group-item-action ps-4">
-              Reports
-            </a>
-          </div>
-
-          <a href="#" class="list-group-item list-group-item-action">
-            Export
-          </a>
-
+      <!-- Scope & action row -->
+      <div class="d-flex flex-column flex-lg-row justify-content-between align-items-start align-items-lg-center gap-3 mb-4">
+        <div class="d-flex align-items-center gap-2 flex-wrap">
+          <span class="fw-semibold">Country & Language Scope:</span>
+          <span class="badge bg-primary-subtle text-primary-emphasis rounded-pill">
+            International - en-US
+          </span>
+          <button class="btn btn-sm btn-outline-secondary">+ Add scope</button>
         </div>
-
-        <!-- Logged In Section -->
-        <div class="mt-auto border-top p-3 small text-muted">
-          <div>Logged in as</div>
-          <div class="fw-semibold text-body">Markus Jensen</div>
-          <div class="text-secondary">Product Specialist</div>
-        </div>
-
+        <button class="btn btn-outline-secondary">Browse families</button>
       </div>
-    </div>
 
+      <!-- Search bar -->
+      <div class="input-group mb-4">
+        <span class="input-group-text"><i class="bi bi-search"></i></span>
+        <input type="text" class="form-control" placeholder="Search family, subfamily, or product...">
+      </div>
 
-    <!-- ================================= -->
-    <!-- MAIN CONTENT -->
-    <!-- ================================= -->
-    <main class="col-lg-10 p-4">
+      <!-- Breadcrumb -->
+      <nav aria-label="breadcrumb" class="mb-3">
+        <ol class="breadcrumb small">
+          <li class="breadcrumb-item"><a href="#" class="text-decoration-none">Product Readiness</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Search</li>
+        </ol>
+      </nav>
 
-      <!-- Mobile Toggle Button -->
-      <button class="btn btn-outline-secondary d-lg-none mb-3"
-              data-bs-toggle="offcanvas"
-              data-bs-target="#sidebarMobile">
-        ☰ Menu
-      </button>
+      <!-- Page Title -->
+      <h2 class="fw-semibold mb-4">104 Results for “CRE”</h2>
 
-      <h4 class="mb-4">Product Readiness</h4>
-
-      <div class="card shadow-sm">
-        <div class="table-responsive">
-          <table class="table align-middle mb-0">
-            <thead class="table-light">
-              <tr>
-                <th>Family</th>
-                <th>Effective Completeness</th>
-                <th>Structural Completeness</th>
-                <th>Governance Level</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>ALPHA</td>
-                <td>72%</td>
-                <td>
-                  <span class="badge bg-success">4</span>
-                  <span class="badge bg-warning text-dark">1</span>
-                  <span class="badge bg-danger">2</span>
-                </td>
-                <td>
-                  <div class="progress" style="height:6px;">
-                    <div class="progress-bar bg-success" style="width:72%"></div>
-                  </div>
-                </td>
-              </tr>
-
-              <tr>
-                <td>Jet Boosters</td>
-                <td>92%</td>
-                <td>
-                  <span class="badge bg-success">6</span>
-                  <span class="badge bg-warning text-dark">0</span>
-                  <span class="badge bg-danger">1</span>
-                </td>
-                <td>
-                  <div class="progress" style="height:6px;">
-                    <div class="progress-bar bg-success" style="width:92%"></div>
-                  </div>
-                </td>
-              </tr>
-
-            </tbody>
-          </table>
-        </div>
+      <!-- Placeholder content -->
+      <div class="border rounded p-5 text-center text-body-secondary">
+        Search results will appear here
       </div>
 
     </main>
-
   </div>
 </div>
 
